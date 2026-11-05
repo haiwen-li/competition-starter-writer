@@ -49,7 +49,7 @@ class PostWithContext(BaseModel):
     quoted_post: Optional[Post] = None
     in_reply_to_post: Optional[Post] = None
     # From the note requests on this post (un-vetted user input). Not yet used by the note writer.
-    # note_request_suggestions: [{"suggestion_id": str, "suggestion": str, "source_link": str (optional)}]
+    # note_request_suggestions: [{"suggestion_id": str, "suggestion": str}]
     note_request_suggestions: List[Dict[str, Any]] = []
     # suggested_source_links_with_counts: [{"url": str, "count": str}]
     suggested_source_links_with_counts: List[Dict[str, Any]] = []

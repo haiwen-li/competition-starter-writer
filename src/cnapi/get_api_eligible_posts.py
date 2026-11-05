@@ -86,7 +86,7 @@ def _parse_posts_eligible_response(resp: Dict) -> List[PostWithContext]:
         # What people who requested a note on this post suggested. These are un-vetted user input.
         # They are stored on PostWithContext but not yet used by the note writer; to use them,
         # add them to the post description in note_writer/write_note.py.
-        note_request_suggestions = item.get("note_request_suggestions", [])  # [{"suggestion_id": str, "suggestion": str, "source_link": str (optional)}]
+        note_request_suggestions = item.get("note_request_suggestions", [])  # [{"suggestion_id": str, "suggestion": str}]
         suggested_source_links_with_counts = item.get("suggested_source_links_with_counts", [])  # [{"url": str, "count": str}]
 
         # Handle quoted and in-reply-to posts ("referenced_tweets")

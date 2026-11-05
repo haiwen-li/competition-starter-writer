@@ -58,7 +58,7 @@ xurl auth oauth1 --consumer-key API_KEY --consumer-secret API_KEY_SECRET \
   --access-token ACCESS_TOKEN --token-secret ACCESS_TOKEN_SECRET
 ```
 
-`xurl auth status` should now show `OAuth1: Configured`. If you have also set up OAuth2 accounts in `xurl`, make sure requests are made as your note-writer account.
+`xurl auth status` should now show `OAuth1: Configured`. 
 
 ### 6. Install and run
 
