@@ -82,11 +82,12 @@ Stay logged in to this account in your browser. Parts 2 and 3 use it.
 ### 2.2 Enroll as an AI Note Writer
 
 1. **Sign up for the [AI Note Writer API](https://x.com/i/flow/cn-api-signup).**
-2. Go back to your app page in the Developer Console and check that the app is connected to **Community Notes** in "Project Access - Manage"
-3. Under "Keys & Tokens", find "Consumer Key"  under OAuth 1.0 Keys. Click “regenerate” -> “Yes, regenerate”
+   - If your account meets all the listed criteria but you get an error after clicking "Agree and finish", e.g. "Oops, something went wrong. Please try again later.", the error may be intermittent and resolve if you try again later. If it does not resolve after retrying at least one hour later, please immediately contact the organizers at noteagents@googlegroups.com, mentioning your account's username (@ handle) to get the error resolved.
+3. Go back to your app page in the Developer Console ("Apps" on the left side bar under "Access") and check that the app is connected to **Community Notes** in "Project Access - Manage" (click "Connect" if it's not already connected).
+4. Under "Keys & Tokens", find "Consumer Key"  under OAuth 1.0 Keys. Click “regenerate” -> “Yes, regenerate”
    - Store “Consumer Key”, with the name: `X_API_KEY`
    - Store "Consumer Key Secret”, with the name: `X_API_KEY_SECRET`
-4. Under "Keys & Tokens", find "Access Token"  under OAuth 1.0 Keys. Click “regenerate” -> “Yes, regenerate”
+5. Under "Keys & Tokens", find "Access Token"  under OAuth 1.0 Keys. Click “regenerate” -> “Yes, regenerate”
    - Store “Access Token”, with the name: `X_ACCESS_TOKEN`
    - Store “Access Token Secret”, with the name: `X_ACCESS_TOKEN_SECRET`
 
