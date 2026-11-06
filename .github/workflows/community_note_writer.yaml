@@ -1,0 +1,69 @@
+name: Starter AI Note Writer
+
+on:
+  # Run by hand from the Actions tab: Actions > Starter AI Note Writer > Run workflow
+  workflow_dispatch:
+    inputs:
+      num_posts:
+        description: "Number of posts to process"
+        default: "10"
+      concurrency:
+        description: "Number of posts to process at a time"
+        default: "1"
+      dry_run:
+        description: "Write notes but do not submit them"
+        type: boolean
+        default: false
+
+  # Uncomment the two lines below to run on a schedule. This example runs every 6 hours (UTC).
+  # Every run costs X API and xAI credits, so pick a schedule you can afford.
+  #schedule:
+  #  - cron: "0 */6 * * *"
+
+# Never run two copies of the writer at the same time
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  write_notes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Install the project
+        run: uv sync --locked
+
+      - name: Install xurl
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/xdevplatform/xurl/main/install.sh | bash
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Log in to xurl with OAuth 1.0a
+        run: xurl auth oauth1 --consumer-key "$X_API_KEY" --consumer-secret "$X_API_KEY_SECRET" --access-token "$X_ACCESS_TOKEN" --token-secret "$X_ACCESS_TOKEN_SECRET"
+        # Stored under Settings > Secrets and variables > Actions > Secrets
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+
+      - name: Run the writer
+        run: |
+          ARGS="--num-posts ${NUM_POSTS} --concurrency ${CONCURRENCY}"
+          if [ "${DRY_RUN}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
+          uv run src/main.py $ARGS
+        env:
+          # Scheduled runs have no inputs, so they use the defaults after ||
+          NUM_POSTS: ${{ inputs.num_posts || '10' }}
+          CONCURRENCY: ${{ inputs.concurrency || '1' }}
+          DRY_RUN: ${{ inputs.dry_run || false }}
+          # Secret, stored under Settings > Secrets and variables > Actions > Secrets
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+          # Variable, stored under Settings > Secrets and variables > Actions > Variables.
+          # Leave it unset (or "true") until X admits your writer, then set it to "false".
+          TEST_MODE: ${{ vars.TEST_MODE || 'true' }}
