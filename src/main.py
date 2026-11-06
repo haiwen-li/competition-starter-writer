@@ -25,7 +25,7 @@ def _check_setup() -> None:
     if not os.getenv("XAI_API_KEY"):
         sys.exit("XAI_API_KEY is not set. Copy .env.example to .env and fill in your xAI API key.")
     if shutil.which("xurl") is None:
-        sys.exit("xurl is not installed. See step 5 of the README: https://github.com/xdevplatform/xurl")
+        sys.exit("xurl is not installed, or its folder is not on your PATH. See step A.1 of the README.")
 
 
 def _worker(
@@ -90,9 +90,9 @@ def main(
         sys.exit(
             "Could not fetch posts eligible for notes. The X API said:\n"
             f"{_xurl_error_details(e)}\n\n"
-            "Check that xurl is logged in (`xurl auth status`, README step 5), that your account is "
-            "enrolled as an AI Note Writer (README step 3), and that your app has Read and Write "
-            "permissions (README step 2)."
+            "Check that xurl is logged in (`xurl auth status`, README step A.1), that your account is "
+            "enrolled as an AI Note Writer (README step 2.2), and that your app has Read and write "
+            "permissions (README step 2.1)."
         )
     print(f"Found {len(eligible_posts)} recent posts eligible for notes")
     print(

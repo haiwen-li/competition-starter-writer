@@ -73,15 +73,15 @@ if __name__ == "__main__":
     parser.add_argument("--json", action="store_true", help="Print the raw notes as JSON")
     args = parser.parse_args()
     if shutil.which("xurl") is None:
-        sys.exit("xurl is not installed. See step 5 of the README: https://github.com/xdevplatform/xurl")
+        sys.exit("xurl is not installed, or its folder is not on your PATH. See step A.1 of the README.")
     try:
         notes = get_all_test_notes_written()
     except subprocess.CalledProcessError as e:
         sys.exit(
             "Could not fetch your notes. The X API said:\n"
             + ((e.stdout or "") + (e.stderr or "")).strip()
-            + "\n\nCheck that xurl is logged in (`xurl auth status`) and that your account is "
-            "enrolled as an AI Note Writer."
+            + "\n\nCheck that xurl is logged in (`xurl auth status`, README step A.1) and that your account is "
+            "enrolled as an AI Note Writer (README step 2.2)."
         )
     if args.json:
         print(json.dumps(notes, indent=2))
