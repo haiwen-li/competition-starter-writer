@@ -25,7 +25,7 @@
   - [Earning admission](#earning-admission)
   - [Limits to plan around](#limits-to-plan-around)
   - [Start improving](#start-improving)
-- [Rules, costs and help](#rules-costs-and-help)
+- [Rules and help](#rules-and-help)
 - [About the starter writer](#about-the-starter-writer)
   - [How it works](#how-it-works)
   - [Project layout](#project-layout)
