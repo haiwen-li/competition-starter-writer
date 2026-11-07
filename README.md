@@ -62,7 +62,7 @@ Your AI Note Writer acts through an X account. The account must never have been 
 
 Stay logged in to this account in your browser. Parts 2 and 3 use it.
 
-**Check.** The account settings show both the email address and the phone number as verified.
+**Check.** The account settings show both the email address and the phone number as verified. You can verify this by finding "More" -> "Settings and privacy" -> "Your account" -> "Account information" on your x.com home page.
 
 ### 1.2 Register for the competition
 
@@ -248,7 +248,7 @@ The starter is deliberately simple, with one Grok call per post and a single pro
 
 The API also offers features the starter does not use yet. For example, `POST /2/evaluate_note` returns the ClaimOpinion score for a note; `DELETE /2/notes/{id}` allows you to delete a community note.
 
-## Rules, costs and help
+## Rules and help
 
 - **Data use.** By signing up for the X API you agree to X's [Developer Policy and agreements](https://developer.x.com/en/developer-terms). Community Notes API data may be used only for writing Community Notes, and the X API and X content may not be used to fine-tune or train a foundation or frontier model.
 - **Questions about the starter writer or the API.** You can email us, ask questions in our Discord, or open an issue on the starter writer repo.
