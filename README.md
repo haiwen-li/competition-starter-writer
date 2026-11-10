@@ -11,9 +11,10 @@
   - [2.1 Create an X developer app](#21-create-an-x-developer-app)
   - [2.2 Enroll as an AI Note Writer](#22-enroll-as-an-ai-note-writer)
 - [(Optional) Part 3. Get an xAI API key](#optional-part-3-get-an-xai-api-key)
-- [(Optional) Part 4. Fork the starter writer and run it](#optional-part-4-fork-the-starter-writer-and-run-it)
-  - [4.1 Fork and clone](#41-fork-and-clone)
-  - [4.2 Choose how to run your writer](#42-choose-how-to-run-your-writer)
+- [(Optional) Part 4. Copy the starter writer and run it](#optional-part-4-copy-the-starter-writer-and-run-it)
+  - [4.1 Create your repo from the template](#41-create-your-repo-from-the-template)
+  - [4.2 Share your repo with the organizers](#42-share-your-repo-with-the-organizers)
+  - [4.3 Choose how to run your writer](#43-choose-how-to-run-your-writer)
   - [Option A. Run on your computer](#option-a-run-on-your-computer)
     - [A.1 Install xurl and log in](#a1-install-xurl-and-log-in)
     - [A.2 Install the writer](#a2-install-the-writer)
@@ -37,7 +38,7 @@ The setup has four parts. You only need to finish the first two parts to be elig
 1. Register for the competition and create an X account for your writer.
 2. Sign up for the X API, enroll as an AI Note Writer, and generate your X keys.
 3. (Optional) Get an xAI API key for the language model.
-4. (Optional) Fork the starter writer, run it, and submit your first test notes.
+4. (Optional) Create your own copy of the starter writer, run it, and submit your first test notes.
 
 ### What you need before you start
 
@@ -57,7 +58,7 @@ The setup has four parts. You only need to finish the first two parts to be elig
 Your AI Note Writer acts through an X account. The account must never have been a Community Notes contributor.
 
 1. Create a new account at [x.com](https://x.com) or use an existing account.
-2. Add and verify an email address in the account settings. This email address does not need to be the email you use for competition registration
+2. Add and verify an email address in the account settings. This email address does not need to be the email you use for competition registration.
 3. Add and verify a phone number from a trusted carrier in the account settings.
 
 Stay logged in to this account in your browser. Parts 2 and 3 use it.
@@ -75,7 +76,7 @@ Stay logged in to this account in your browser. Parts 2 and 3 use it.
 
 1. Go to the [X Developer Console](https://console.x.com) and sign in with your writer account.
 2. Accept the Developer Agreement and Policy, and fill in the short profile about how you will use the API.
-3. Click on "Apps" on the left side bar under "Access". You will see an app with name ends with your X account name. Click on it, then click on "Settings" next to the app name.
+3. Click on "Apps" on the left side bar under "Access". You will see an app whose name ends with your X account name. Click on it, then click on "Settings" next to the app name.
 4. Select "Read and write" under "App permissions". Select "Web App, Automated App or Bot" under "Type of App". For "App Info", callback URL may be anything e.g. <http://localhost:8080>, and website URL could be <http://x.com>.
 5. Save changes.
 
@@ -83,20 +84,20 @@ Stay logged in to this account in your browser. Parts 2 and 3 use it.
 
 1. **Sign up for the [AI Note Writer API](https://x.com/i/flow/cn-api-signup).**
    - If your account meets all the listed criteria but you get an error after clicking "Agree and finish", e.g. "Oops, something went wrong. Please try again later.", the error may be intermittent and resolve if you try again later. If it does not resolve after retrying at least one hour later, please immediately contact the organizers at noteagents@googlegroups.com, mentioning your account's username (@ handle) to get the error resolved.
-3. Go back to your app page in the Developer Console ("Apps" on the left side bar under "Access") and check that the app is connected to **Community Notes** in "Project Access - Manage" (click "Connect" if it's not already connected).
-4. Under "Keys & Tokens", find "Consumer Key"  under OAuth 1.0 Keys. Click “regenerate” -> “Yes, regenerate”
-   - Store “Consumer Key”, with the name: `X_API_KEY`
-   - Store "Consumer Key Secret”, with the name: `X_API_KEY_SECRET`
-5. Under "Keys & Tokens", find "Access Token"  under OAuth 1.0 Keys. Click “regenerate” -> “Yes, regenerate”
-   - Store “Access Token”, with the name: `X_ACCESS_TOKEN`
-   - Store “Access Token Secret”, with the name: `X_ACCESS_TOKEN_SECRET`
+2. Go back to your app page in the Developer Console ("Apps" on the left side bar under "Access") and check that the app is connected to **Community Notes** in "Project Access - Manage" (click "Connect" if it's not already connected).
+3. Under "Keys & Tokens", find "Consumer Key" under OAuth 1.0 Keys. Click "Regenerate" -> "Yes, regenerate".
+   - Store "Consumer Key" with the name `X_API_KEY`
+   - Store "Consumer Key Secret" with the name `X_API_KEY_SECRET`
+4. Under "Keys & Tokens", find "Access Token" under OAuth 1.0 Keys. Click "Regenerate" -> "Yes, regenerate".
+   - Store "Access Token" with the name `X_ACCESS_TOKEN`
+   - Store "Access Token Secret" with the name `X_ACCESS_TOKEN_SECRET`
 
-| Where on the page | Value | Name used in Part 4 |
+| Where on the page (OAuth 1.0 Keys) | Value | Name used in Part 4 |
 | --- | --- | --- |
-| Consumer Keys | API Key | `X_API_KEY` |
-| Consumer Keys | API Key Secret | `X_API_KEY_SECRET` |
-| Authentication Tokens | Access Token | `X_ACCESS_TOKEN` |
-| Authentication Tokens | Access Token Secret | `X_ACCESS_TOKEN_SECRET` |
+| Consumer Key | API Key | `X_API_KEY` |
+| Consumer Key | API Key Secret | `X_API_KEY_SECRET` |
+| Access Token | Access Token | `X_ACCESS_TOKEN` |
+| Access Token | Access Token Secret | `X_ACCESS_TOKEN_SECRET` |
 
 Generate the access token only after you have set Read and write in step 2.1. If you lose a key, regenerate it. The old one stops working. Never commit these keys to GitHub or share them in public.
 
@@ -107,21 +108,31 @@ The starter writer uses Grok through the xAI API. You can switch the writer to a
 1. Sign in at [console.x.ai](https://console.x.ai).
 2. Create an API key and save it as `XAI_API_KEY`.
 
-## (Optional) Part 4. Fork the starter writer and run it
+## (Optional) Part 4. Copy the starter writer and run it
 
-### 4.1 Fork and clone
+### 4.1 Create your repo from the template
 
-1. Open the [starter writer repo](https://github.com/haiwen-li/competition-starter-writer) and click **Fork**.
-2. Clone your fork and move into it.
+1. Open the [starter writer repo](https://github.com/haiwen-li/competition-starter-writer) and click **Use this template > Create a new repository**.
+2. Choose an owner (your account), give the repo a name, and choose **Private** or **Public**.
+3. Click **Create repository**.
+4. Clone your new repo and move into it.
 
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/competition-starter-writer.git
-cd competition-starter-writer
+git clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME.git
+cd YOUR_REPO_NAME
 ```
 
-A fork of a public repo is public. Your keys stay private because they live only on your computer (Option A) or in your repo's Actions secrets (Option B), and the repo's `.gitignore` keeps `.env` out of commits.
+Your keys stay private, because they live only on your computer (Option A) or in your repo's Actions secrets (Option B), and the repo's `.gitignore` keeps `.env` out of commits.
 
-### 4.2 Choose how to run your writer
+### 4.2 Share your repo with the organizers
+
+1. **Give the organizers access to your private repo.** Open your repo on GitHub, then **Settings > Collaborators** (called **Collaborators and teams** for repos owned by an organization). Click **Add people** and add `TODO_ORGANIZER_GITHUB_USERNAME`.
+2. **Pick the access level.**
+   - Repos owned by an organization: choose the **Read** role.
+   - Repos owned by a personal account: GitHub has no read-only option, so collaborators get write access. We will only read your repo and will never push to it.
+3. **Send us your repo URL** TODO: how participants submit their repo URL (form link or email).
+
+### 4.3 Choose how to run your writer
 
 You can run the writer on your own computer (Option A) or on GitHub's servers with GitHub Actions (Option B). You only need one of them.
 
@@ -210,13 +221,13 @@ The report lists every test note with its score on each evaluator, then a summar
 
 The repo includes a GitHub Actions workflow, `.github/workflows/community_note_writer.yaml`, that runs the writer on GitHub's servers. It does the same thing as steps A.3 and A.4, but it can also run on a schedule while your computer is off. You do not need to install anything from Option A.
 
-1. **Add your keys as repository secrets.** In your fork on GitHub, open **Settings > Secrets and variables > Actions**. On the **Secrets** tab, click **New repository secret** and add these five, with the names spelled exactly as shown.
+1. **Add your keys as repository secrets.** In your repo on GitHub, open **Settings > Secrets and variables > Actions**. On the **Secrets** tab, click **New repository secret** and add these five, with the names spelled exactly as shown.
    - `X_API_KEY`
    - `X_API_KEY_SECRET`
    - `X_ACCESS_TOKEN`
    - `X_ACCESS_TOKEN_SECRET`
    - `XAI_API_KEY`
-2. **Turn on Actions for your fork.** Open the **Actions** tab and click the button to enable them.
+2. **Check that Actions are on.** Open the **Actions** tab. If GitHub asks you to enable workflows, click the button to enable them.
 3. **Run it once by hand.** Open **Actions > Starter AI Note Writer > Run workflow**. You can set the number of posts, the concurrency, and whether to do a dry run. Check **dry run** the first time.
 4. **Read the output.** Click the run, then the **write\_notes** job, then the **Run the writer** step. The output is the same as in step A.3.
 5. **(Optional) Run on a schedule.** In `.github/workflows/community_note_writer.yaml`, remove the `#` in front of the two `schedule` lines, then commit and push. The example runs every 6 hours.
@@ -251,13 +262,13 @@ The API also offers features the starter does not use yet. For example, `POST /2
 ## Rules and help
 
 - **Data use.** By signing up for the X API you agree to X's [Developer Policy and agreements](https://developer.x.com/en/developer-terms). Community Notes API data may be used only for writing Community Notes, and the X API and X content may not be used to fine-tune or train a foundation or frontier model.
-- **Questions about the starter writer or the API.** You can email us, ask questions in our Discord, or open an issue on the starter writer repo.
+- **Questions about the starter writer or the API.** You can email us at noteagents@googlegroups.com, ask questions in our [Discord](TODO_DISCORD_INVITE_LINK), or open an issue on the [starter writer repo](https://github.com/haiwen-li/competition-starter-writer/issues).
 
 ---
 
 ## About the starter writer
 
-This is a working starter bot for the WSDM Cup competition **Writing Agents for Community Notes**. It is meant to be forked and improved.
+This is a working starter bot for the WSDM Cup competition **Writing Agents for Community Notes**. It is meant to be copied from the template and improved.
 
 The starter is deliberately simple. It makes **one LLM call per post**. In that call, `grok-4.3` searches the web and X (including images and video), decides whether the post needs a note, and writes the note if it does. The rest of the code fetches posts, submits notes and shows you how the automated evaluator scored them.
 
