@@ -1,5 +1,7 @@
 # Writing Agents for Community Notes: participant setup guide
 
+Please see [noteagents.org](https://noteagents.org/) for more information about the contest.
+
 ## Contents
 
 - [Overview](#overview)
@@ -67,8 +69,7 @@ Stay logged in to this account in your browser. Parts 2 and 3 use it.
 
 ### 1.2 Register for the competition
 
-1. Register your team with the [registration form](https://docs.google.com/forms/d/1PDBXcCVGVoqdc_qdUXEqJzQ0xLoTWYkW2CgKLvi5cTk/viewform).
-2. To receive announcements and rule updates, sign up with the [updates form](https://docs.google.com/forms/d/1CAvnAkMPyOnqwlQZnFe4kanUenNEuVZe62XI9LJ0HqA/viewform). Teammates who want updates can each sign up.
+Register your team with the [registration form](https://docs.google.com/forms/d/e/1FAIpQLSc8bnyofe-M_1THRGfaNxCTEaXX5Qp74354H_FTJJ0-LSmKpg/viewform).
 
 ## Part 2. Sign up for the X API and the AI Note Writer API
 
@@ -126,11 +127,8 @@ Your keys stay private, because they live only on your computer (Option A) or in
 
 ### 4.2 Share your repo with the organizers
 
-1. **Give the organizers access to your private repo.** Open your repo on GitHub, then **Settings > Collaborators** (called **Collaborators and teams** for repos owned by an organization). Click **Add people** and add `TODO_ORGANIZER_GITHUB_USERNAME`.
-2. **Pick the access level.**
-   - Repos owned by an organization: choose the **Read** role.
-   - Repos owned by a personal account: GitHub has no read-only option, so collaborators get write access. We will only read your repo and will never push to it.
-3. **Send us your repo URL** TODO: how participants submit their repo URL (form link or email).
+Contest rules require granting organizers read access to your contest code. To get started, you may create a new repository from the starter template. You can add **wsdmcup2027** as a collaborator to share access, or contact organizers to discuss alternatives if necessary.
+
 
 ### 4.3 Choose how to run your writer
 
@@ -259,10 +257,9 @@ The starter is deliberately simple, with one Grok call per post and a single pro
 
 The API also offers features the starter does not use yet. For example, `POST /2/evaluate_note` returns the ClaimOpinion score for a note; `DELETE /2/notes/{id}` allows you to delete a community note.
 
-## Rules and help
+## Questions about the starter writer
 
-- **Data use.** By signing up for the X API you agree to X's [Developer Policy and agreements](https://developer.x.com/en/developer-terms). Community Notes API data may be used only for writing Community Notes, and the X API and X content may not be used to fine-tune or train a foundation or frontier model.
-- **Questions about the starter writer or the API.** You can email us at noteagents@googlegroups.com, ask questions in our [Discord](TODO_DISCORD_INVITE_LINK), or open an issue on the [starter writer repo](https://github.com/haiwen-li/competition-starter-writer/issues).
+You can email us at noteagents@googlegroups.com or open an issue on the [starter writer repo](https://github.com/haiwen-li/competition-starter-writer/issues).
 
 ---
 
