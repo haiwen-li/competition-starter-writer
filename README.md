@@ -1,6 +1,6 @@
 # Writing Agents for Community Notes: participant setup guide
 
-Please see [noteagents.org](https://noteagents.org/) for more information about the contest.
+Please see [https://wsdmcup2027.github.io/](https://wsdmcup2027.github.io/) for more information about the contest.
 
 ## Contents
 
