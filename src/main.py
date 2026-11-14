@@ -56,12 +56,13 @@ def _worker(
 
     if note_result.note is not None and not dry_run:
         try:
-            submit_note(
+            response = submit_note(
                 note=note_result.note,
                 test_mode=test_mode,
                 verbose_if_failed=False,
             )
-            log_strings.append("\n*SUCCESSFULLY SUBMITTED NOTE*\n")
+            note_id = response["data"]["id"]
+            log_strings.append(f"\n*SUCCESSFULLY SUBMITTED NOTE*\nNote ID: {note_id}\n")
         except Exception as e:
             log_strings.append(
                 "\n*ERROR SUBMITTING NOTE* (if it says a note already exists, we already wrote a note "
